@@ -1,0 +1,15 @@
+main {
+    background: white;
+    width: 100%;
+}
+
+.error {
+    padding: 10px 0 50px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.heading {
+    height: 35px;
+    background: #f5f5f5;
+}
