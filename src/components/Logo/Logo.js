@@ -1,8 +1,7 @@
-// Functional Component
-
 import React from 'react';
-import './Logo.css';
 
-export const Logo = () => (
+const Logo = () => (
     <div className="logo">NetflixRoulette</div>
 );
+
+export default Logo;
