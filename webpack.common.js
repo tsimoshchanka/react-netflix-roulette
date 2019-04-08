@@ -1,11 +1,10 @@
-// const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
+module.exports = {
     entry: './src/index.js',
+    
 	module: {
 		rules: [
 			{
@@ -55,18 +54,7 @@ const config = {
 			minChunks: 1,
 			minSize: 10000,
 			name: true
-        },
-        minimizer: [
-            new UglifyJsPlugin({
-                extractComments: function(astNode, comment) {
-                    if (/@extract/i.test(comment.value)) {
-                        return true;
-                    }
-      
-                    return false;
-                },
-            }),
-        ]
+        }
 	},
 
 	plugins: [
@@ -78,11 +66,3 @@ const config = {
         })
     ]
 };
-
-module.exports = (env, argv) => {
-    config.mode = argv.mode || 'development';
-    config.devtool = argv.mode === 'development' ? 'source-map' : 'eval';
-  
-    return config;
-};
-  
