@@ -1,4 +1,4 @@
-.button-standard {
+.button {
     display: inline-block;
     margin-right: 10px;
     border-radius: 3px;
@@ -10,25 +10,28 @@
     text-transform: uppercase;
     font-weight: 600;
     line-height: 1.5;
+}
 
-    &__checked {
-        background: #f55263;
-    }
+.buttonChecked {
+    @extend .button;
+    background: #f55263;
+}
 
-    &__inverted {
-        color: #f55263;
-        background: white;
-    }
+.buttonInverted {
+    @extend .button;
+    color: #f55263;
+    background: white;
+}
 
-    &__action {
-        padding: 10px 80px;
-        background: #f55263;
-        border: none;
-        border-radius: 4px;
-        font-size: 14px;
-        font-weight: 600;
-        color: white;
-        text-transform: uppercase;
-        margin-left: auto;
-    }
+.buttonAction {
+    @extend .button;
+    padding: 10px 80px;
+    background: #f55263;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    margin-left: auto;
 }

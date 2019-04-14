@@ -8,6 +8,33 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     
     devServer: {
-        contentBase: './dist'
-    }
+        contentBase: './dist' 
+    },
+
+    module: {
+		rules: [
+			{
+				test: /\.(scss|css)$/,
+
+				use: [
+					{
+                        loader: 'style-loader'
+					},
+					{
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            importLoaders: true,
+                            modules: true,
+                            localIdentName: '[local]___[hash:base64:5]',
+                        }
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
+			}
+		]
+	},
+
 });

@@ -6,7 +6,7 @@ const SearchCriteriasList = (props) => {
         <Button
             key={option}
             title={option}
-            classModifier={props.currentOption === option ? 'checked' : ''}
+            classModifier={props.currentOption === option ? 'buttonChecked' : ''}
             onClick={() => props.changeHandler(option)}>
         </Button>
     );

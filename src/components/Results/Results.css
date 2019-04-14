@@ -1,16 +1,17 @@
 .results {
     background: white;
     width: 100%;
-
-    &__error {
-        padding: 10px 0 50px;
-        font-size: 1.6rem;
-        text-align: center;
-    }
-    
-    &__heading {
-        height: 35px;
-        background: #f5f5f5;
-    }
 }
 
+.resultsError {
+    @extend .results;
+    padding: 10px 0 50px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.resultsHeading {
+    @extend .results;
+    height: 35px;
+    background: #f5f5f5;
+}

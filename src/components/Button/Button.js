@@ -1,17 +1,15 @@
 import React from 'react';
-import classNames from 'classnames';
+import CSSModules from 'react-css-modules';
+import styles from './Button.css';
 
-const ButtonStandard = (props) => (
+const Button = (props) => (
     <>
         <button type="button"
-            className={classNames({
-                'button-standard': true,
-                [`button-standard__${props.classModifier}`]: props.classModifier
-            })}
+            className={styles[props.classModifier] || styles.button}
             onClick={props.onClick}>
             {props.title}
         </button>
     </>
 )
 
-export default ButtonStandard;
+export default CSSModules(Button, styles);

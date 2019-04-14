@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './Results.css';
 
 const Results = () => (
-    <main className="results">
-        <div className="results__heading"></div>
-        <div className="results__error">No films found</div>
+    <main className={styles.results}>
+        <div className={styles.resultsHeading}></div>
+        <div className={styles.resultsError}>No films found</div>
     </main>
 );
 

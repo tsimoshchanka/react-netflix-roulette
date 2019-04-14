@@ -1,9 +1,10 @@
 import React from 'react';
 import Logo from '../Logo';
 import SearchForm from '../SearchForm';
+import styles from './Header.css';
 
 const Header = () => (
-    <header>
+    <header className={styles.header}>
         <Logo />
         <SearchForm />
     </header>

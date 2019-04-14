@@ -1,11 +1,4 @@
-header {
+.header {
     background: #212125;
     color: white;
 }
-
-h1 {
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-

@@ -1,9 +1,10 @@
 import React from 'react';
 import SearchCriteriasList from '../SearchCriteriasList';
 import Button from '../Button';
+import styles from './SearchFilter.css';
 
 const SearchFilter = (props) => (
-    <div className="search-filter">
+    <div className={styles.searchFilter}>
         <span>Search by </span>
         <SearchCriteriasList
             options={props.options}
@@ -12,7 +13,7 @@ const SearchFilter = (props) => (
         />
         <Button
             title="Search"
-            classModifier="action"
+            classModifier="buttonAction"
         />
     </div>
 )

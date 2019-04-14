@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchField from '../SearchField';
 import SearchFilter from '../SearchFilter';
+import styles from './SearchForm.css';
 
 const SEARCH_OPTIONS = ['title', 'genre'];
 
@@ -31,7 +32,7 @@ class SearchForm extends React.Component {
     render() {
         return (
             <>
-                <h1>Find your movie</h1>
+                <h1 className={styles.heading}>Find your movie</h1>
                 
                 <SearchField
                     value={this.state.searchString}

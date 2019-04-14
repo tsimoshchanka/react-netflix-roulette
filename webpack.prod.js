@@ -20,5 +20,31 @@ module.exports = merge(common, {
                 },
             }),
         ]
-	}
+    },
+    
+    module: {
+		rules: [
+			{
+				test: /\.(scss|css)$/,
+
+				use: [
+					{
+                        loader: 'style-loader'
+					},
+					{
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: false,
+                            importLoaders: true,
+                            modules: true,
+                            localIdentName: '[hash:base64:8]',
+                        }
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
+			}
+		]
+	},
 });

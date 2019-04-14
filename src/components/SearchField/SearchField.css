@@ -1,4 +1,4 @@
-input[type="text"] {
+.searchField {
     display: block;
     width: 100%;
     background: black;
