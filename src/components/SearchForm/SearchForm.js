@@ -3,49 +3,21 @@ import SearchField from '../SearchField';
 import SearchFilter from '../SearchFilter';
 import styles from './SearchForm.css';
 
-const SEARCH_OPTIONS = ['title', 'genre'];
-
-class SearchForm extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            searchString: 'Fargo S01',
-            searchCriteria: SEARCH_OPTIONS[0]
-        }
-
-        this.handleTextSearch = this.handleTextSearch.bind(this);
-        this.handleCriteriaChange = this.handleCriteriaChange.bind(this);
-    }
-
-    handleTextSearch(event) {
-        this.setState({
-            searchString: event.target.value
-        });
-    }
-
-    handleCriteriaChange(newCriteria) {
-        this.setState({
-            searchCriteria: newCriteria
-        });
-    }
-
-    render() {
-        return (
-            <>
-                <h1 className={styles.heading}>Find your movie</h1>
-                
-                <SearchField
-                    value={this.state.searchString}
-                    onChange={this.handleTextSearch}
-                />
-                <SearchFilter
-                    options={SEARCH_OPTIONS}
-                    currentOption={this.state.searchCriteria}
-                    changeHandler={this.handleCriteriaChange}
-                />
-            </>
-        );
-    }
+const SearchForm = (props) => {
+    return (
+        <>
+            <h1 className={styles.heading}>Find your movie</h1>
+            <SearchField
+                value={props.currentSearchString}
+                onChange={props.handleTextSearch}
+            />
+            <SearchFilter
+                options={props.searchOptions}
+                currentOption={props.currentSearchCriteria}
+                changeHandler={props.handleSearchOptionChange}
+            />
+        </>
+    );
 }
 
 export default SearchForm;
