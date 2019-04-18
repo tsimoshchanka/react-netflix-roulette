@@ -1,0 +1,11 @@
+.filmDurationAndYear {
+    margin: 12px 0 24px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.filmDuration {
+    margin-right: 20px;
+}
