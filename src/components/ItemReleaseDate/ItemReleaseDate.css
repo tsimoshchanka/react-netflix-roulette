@@ -1,0 +1,14 @@
+.itemReleaseDate {
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    display: inline-block;
+    color: gray;
+    padding: 1px 3px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: bold;
+    background: transparent;
+    text-transform: uppercase;
+}
