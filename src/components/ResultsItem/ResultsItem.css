@@ -15,6 +15,7 @@
     border: 1px solid lightgrey;
     vertical-align: top;
     text-align: left;
+    cursor: pointer;
 }
 
 .resultsItemWording {

@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from '../Button';
 
-const SearchCriteriasList = (props) => {
-    const searchCriterias = props.options.map(option => 
+const SearchCriteriasList = ({ options, currentOption, changeHandler }) => {
+    const searchCriterias = options.map(option => 
         <Button
             key={option}
             title={option}
-            classModifier={props.currentOption === option ? 'buttonChecked' : ''}
-            onClick={() => props.changeHandler(option)}>
+            customClass={currentOption === option ? 'buttonChecked' : ''}
+            onClick={() => changeHandler(option)}>
         </Button>
     );
 

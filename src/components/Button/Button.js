@@ -3,7 +3,7 @@ import styles from './Button.css';
 
 const Button = (props) => (
     <button type="button"
-        className={styles[props.classModifier] || styles.button}
+        className={styles[props.customClass] || styles.button}
         onClick={props.onClick}>
         {props.title}
     </button>
