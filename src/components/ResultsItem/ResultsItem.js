@@ -6,8 +6,9 @@ import ItemReleaseDate from '../ItemReleaseDate';
 import ItemGenre from '../ItemGenre';
 import PropTypes from 'prop-types';
 
-const FilmThumbnail = (props) => (
+const ResultsItem = (props) => (
     <div 
+        id={'results-item-' + props.data.id}
         className={styles.resultsItem}
         onClick={props.onClick}>
         <ItemImage img={props.data.img} title={props.data.title}></ItemImage>
@@ -19,10 +20,10 @@ const FilmThumbnail = (props) => (
     </div>
 )
 
-export default FilmThumbnail;
+export default ResultsItem;
 
 
-FilmThumbnail.propTypes = {
+ResultsItem.propTypes = {
     film: PropTypes.shape({
         id: PropTypes.number,
         img: PropTypes.string,

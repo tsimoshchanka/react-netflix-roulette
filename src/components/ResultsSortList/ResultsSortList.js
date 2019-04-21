@@ -1,14 +1,14 @@
 import React from 'react';
-import SortOption from '../SortOption';
+import ResultsSortOption from '../ResultsSortOption';
 
-const ResultsFilterList = (props) => {
+const ResultsSortList = (props) => {
     const searchCriterias = props.options.map(option => 
-        <SortOption
+        <ResultsSortOption
             key={option}
             title={option}
             classModifier={props.currentOption === option ? 'buttonChecked' : ''}
             onClick={() => props.changeHandler(option)}>
-        </SortOption>
+        </ResultsSortOption>
     );
 
     return (
@@ -18,4 +18,4 @@ const ResultsFilterList = (props) => {
     )
 }
 
-export default ResultsFilterList;
+export default ResultsSortList;
