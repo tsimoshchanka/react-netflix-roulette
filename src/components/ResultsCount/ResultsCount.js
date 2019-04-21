@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ResultsCount.css';
 
-const ResultsСount = (props) => {
-    if(props.count === 0) {
+const ResultsСount = ({ count }) => {
+    if (count === 0) {
         return (
             <span></span>
         )
@@ -10,7 +10,7 @@ const ResultsСount = (props) => {
     
     return (
         <span className={styles.resultsCount}>
-            {props.count} movies found 
+            {count} movies found 
         </span>
     )
 };

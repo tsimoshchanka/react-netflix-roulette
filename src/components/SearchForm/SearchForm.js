@@ -2,19 +2,20 @@ import React from 'react';
 import SearchField from '../SearchField';
 import SearchFilter from '../SearchFilter';
 import styles from './SearchForm.css';
+import { SEARCH_OPTIONS } from '../../constants';
 
-const SearchForm = (props) => {
+const SearchForm = ({ searchString, searchCriteria, changeSearchInputHandler, changeSearchCriteriaHandler }) => {
     return (
         <>
             <h1 className={styles.heading}>Find your movie</h1>
             <SearchField
-                value={props.currentSearchString}
-                onChange={props.handleTextSearch}
+                value={searchString}
+                onChange={(event) => changeSearchInputHandler(event.target.value.toLowerCase())}
             />
             <SearchFilter
-                options={props.searchOptions}
-                currentOption={props.currentSearchCriteria}
-                changeHandler={props.handleSearchOptionChange}
+                options={SEARCH_OPTIONS}
+                currentOption={searchCriteria}
+                changeHandler={changeSearchCriteriaHandler}
             />
         </>
     );

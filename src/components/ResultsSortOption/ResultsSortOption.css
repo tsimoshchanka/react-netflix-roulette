@@ -1,0 +1,16 @@
+.button {
+    display: inline-block;
+    margin-left: 10px;
+    color: black;
+    border: none;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    background: transparent;
+    cursor: pointer;
+}
+
+.buttonChecked {
+    @extend .button;
+    color: #f55263;
+}
