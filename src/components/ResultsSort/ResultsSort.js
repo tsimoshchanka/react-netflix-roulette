@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './ResultsSort.css';
-import ResultsFilterList from '../ResultsFilterList';
+import ResultsSortList from '../ResultsSortList';
 
 const ResultsSort = (props) => (
     <span>
         <span className={styles.resultsSort}>Sort by:</span>
-        <ResultsFilterList
+        <ResultsSortList
             options={props.options}
             currentOption={props.currentOption}
             changeHandler={props.changeHandler}

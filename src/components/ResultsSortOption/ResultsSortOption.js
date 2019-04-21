@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './SortOption.css';
+import styles from './ResultsSortOption.css';
 
-const SortOption = (props) => (
+const ResultsSortOption = (props) => (
     <button type="button"
         className={styles[props.classModifier] || styles.button}
         onClick={props.onClick}>
@@ -9,4 +9,4 @@ const SortOption = (props) => (
     </button>
 )
 
-export default SortOption;
+export default ResultsSortOption;

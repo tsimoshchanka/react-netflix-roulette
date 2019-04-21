@@ -15,7 +15,7 @@ module.exports = {
 					plugins: ['syntax-dynamic-import'],
 				},
 
-				test: /\.js$/
+				test: /\.(js|jsx)$/,
             }
 		]
 	},
