@@ -5,7 +5,6 @@ import ResultsBody from '../ResultsBody';
 import ResultsSortContainer from '../../containers/ResultsSortContainer';
 import { RESULTS_VIEW_MODES } from '../../constants';
 import PropTypes from 'prop-types';
-import { render } from 'react-testing-library';
 
 class Results extends React.Component {
     componentDidMount() {
@@ -32,51 +31,52 @@ class Results extends React.Component {
             )
         }
 
-        if (viewMode === RESULTS_VIEW_MODES.DEFAULT) {
-            return (
-                <main className={styles.results}>
-                    <div className={styles.resultsHeading}>
-                        <ResultsCount
-                            count={results.length}
+        switch (viewMode) {
+            case RESULTS_VIEW_MODES.DEFAULT:
+                return (
+                    <main className={styles.results}>
+                        <div className={styles.resultsHeading}>
+                            <ResultsCount
+                                count={results.length}
+                            />
+                            <ResultsSortContainer />
+                        </div>
+                        <ResultsBody
+                            results={results}
+                            openFilmHandler={openFilmHandler}
                         />
-                        <ResultsSortContainer />
-                    </div>
-                    <ResultsBody
-                        results={results}
-                        openFilmHandler={openFilmHandler}
-                    />
-                </main>
-            );
-        } 
+                    </main>
+                );
 
-        if (viewMode === RESULTS_VIEW_MODES.SAME_GENRE) {
-            return (
-                <main className={styles.results}>
-                    <div className={styles.resultsHeadingMore}>
-                        More films by <span>{openedFilmGenre}</span> genre
-                    </div>
-                    <ResultsBody
-                        results={sameGenreFilms}
-                        openFilmHandler={openFilmHandler}
-                    />
-                </main>
-            )
+            case RESULTS_VIEW_MODES.SAME_GENRE:
+                return (
+                    <main className={styles.results}>
+                        <div className={styles.resultsHeadingMore}>
+                            More films by <span>{openedFilmGenre}</span> genre
+                        </div>
+                        <ResultsBody
+                            results={sameGenreFilms}
+                            openFilmHandler={openFilmHandler}
+                        />
+                    </main>
+                );
         }
     }
 };
 
-// Results.propTypes = {
-//     results: PropTypes.array,
-//     sortOptions: PropTypes.array,
-//     currentSortOption: PropTypes.string,
-//     changeSortHandler: PropTypes.func,
-//     openFilmHandler: PropTypes.func
-// };
+Results.propTypes = {
+    results: PropTypes.array,
+    viewMode: PropTypes.oneOf(Object.keys(RESULTS_VIEW_MODES)),
+    error: PropTypes.object,
+    loading: PropTypes.bool,
+    openedFilmGenre: PropTypes.func,
+    sameGenreFilms: PropTypes.array,
+    openFilmHandler: PropTypes.func
+};
 
-// Results.defaultProps = {
-//     results: [],
-//     sortOptions: [],
-//     currentSortOption: ''
-// };
+Results.defaultProps = {
+    results: [],
+    viewMode: RESULTS_VIEW_MODES.DEFAULT
+};
 
 export default Results;

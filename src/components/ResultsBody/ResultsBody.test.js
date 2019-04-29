@@ -2,7 +2,7 @@ import React from 'react';
 import ResultsBody from './ResultsBody';
 import ResultsItem from '../ResultsItem';
 import { shallow, mount } from 'enzyme';
-import { FILMS_MOCK_DATA } from '../App/Config'; 
+import { RESPONSE_MOCK_DATA } from '../../constants'; 
 
 describe('ResultsBody component', () => {
     let films;
@@ -10,7 +10,7 @@ describe('ResultsBody component', () => {
     let element;
 
     beforeAll(() => {
-        films = FILMS_MOCK_DATA;
+        films = RESPONSE_MOCK_DATA.data;
         clickHandler = jest.fn();
         element = (<ResultsBody
             results={films}
@@ -25,12 +25,12 @@ describe('ResultsBody component', () => {
 
     it('should mount all items', () => {
         const component = mount(element);
-        expect(component.find(ResultsItem).length).toBe(FILMS_MOCK_DATA.length);
+        expect(component.find(ResultsItem).length).toBe(RESPONSE_MOCK_DATA.data.length);
     });
 
     it('should handle click', () => {
         const component = mount(element);
         component.find(ResultsItem).first().simulate('click');
-        expect(clickHandler).toHaveBeenCalledWith(FILMS_MOCK_DATA[0]);
+        expect(clickHandler).toHaveBeenCalledWith(RESPONSE_MOCK_DATA.data[0].id);
     });
 })

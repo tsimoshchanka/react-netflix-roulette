@@ -1,16 +1,16 @@
 import React from 'react';
-import ItemGenre from './ItemGenre';
-import {shallow} from 'enzyme';
+import ItemGenres from './ItemGenres';
+import { shallow } from 'enzyme';
 
 describe('ItemGenre component', () => {
     let itemGenres;
 
     beforeAll(() => {
-        itemGenres = 'someGenre';
+        itemGenres = ['a', 'b', 'c'];
     });
 
     it('should be rendered correctly', () => {
-        const component = shallow(<ItemGenre genres={itemGenres} />);
+        const component = shallow(<ItemGenres genres={itemGenres} />);
         expect(component).toMatchSnapshot();
     });
 })

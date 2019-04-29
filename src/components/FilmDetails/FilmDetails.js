@@ -31,7 +31,7 @@ FilmDetails.propTypes = {
         id: PropTypes.number,
         img: PropTypes.string,
         title: PropTypes.string,
-        genre: PropTypes.string,
+        genres: PropTypes.array,
         year: PropTypes.number,
         rating: PropTypes.number,
         duration: PropTypes.number,

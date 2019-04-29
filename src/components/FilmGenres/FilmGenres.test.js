@@ -10,7 +10,7 @@ describe('FilmGenres component', () => {
     });
 
     it('should be rendered correctly', () => {
-        const component = shallow(<FilmGenres genre={filmGenres} />);
+        const component = shallow(<FilmGenres genres={filmGenres} />);
         expect(component).toMatchSnapshot();
     });
 })

@@ -2,7 +2,7 @@ import React from 'react';
 import SearchCriteriasList from './SearchCriteriasList';
 import Button from '../Button';
 import { shallow, mount } from 'enzyme';
-import { SEARCH_OPTIONS } from '../App/Config'; 
+import { SEARCH_OPTIONS } from '../../constants'; 
 
 describe('SearchCriteriasList component', () => {
     let searchOptions;

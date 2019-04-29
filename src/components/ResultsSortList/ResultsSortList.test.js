@@ -2,7 +2,7 @@ import React from 'react';
 import ResultsSortList from './ResultsSortList';
 import ResultsSortOption from '../ResultsSortOption';
 import { shallow, mount } from 'enzyme';
-import { SORT_OPTIONS } from '../App/Config';
+import { SORT_OPTIONS } from '../../constants';
 
 describe('ResultsSortList component', () => {
     let sortOptions;
@@ -34,7 +34,7 @@ describe('ResultsSortList component', () => {
     it('should trigger onChange handler on changes', () => {
         const component = mount(element);
         component.find(ResultsSortOption).first().simulate('click');
-        expect(clickHandler).toHaveBeenCalledWith(SORT_OPTIONS[0]);
+        expect(clickHandler).toHaveBeenCalledWith(SORT_OPTIONS[0].field);
     });
 
    

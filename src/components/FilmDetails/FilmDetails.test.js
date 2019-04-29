@@ -1,19 +1,13 @@
 import React from 'react';
 import FilmDetails from './FilmDetails';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { RESPONSE_MOCK_DATA } from '../../constants';
 
 describe('FilmDetails component', () => {
     let filmData;
 
     beforeAll(() => {
-        filmData = {
-            id: 0,
-            img: 'image.jpg',
-            year: 1992,
-            rating: 8.3,
-            duration: 145,
-            summary: 'When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.'
-        };
+        filmData = RESPONSE_MOCK_DATA.data[0];
     });
 
     it('should be rendered correctly', () => {

@@ -2,62 +2,76 @@ import React from 'react';
 import Header from './Header';
 import Button from '../Button';
 import { shallow, mount } from 'enzyme';
-import { SEARCH_OPTIONS } from '../App/Config';
+import { HEADER_VIEW_MODES } from '../../constants/';
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+import { RESPONSE_MOCK_DATA } from '../../constants';
+
+const mockStore = configureMockStore();
+const mockStoreData = {
+    results: {
+        movies: RESPONSE_MOCK_DATA.data
+    },
+    navigation: {
+        openedFilmId: 447365
+    }
+};
+const mockStoreData2 = {
+    results: {
+        movies: RESPONSE_MOCK_DATA.data
+    },
+    navigation: {
+        openedFilmId: null
+    },
+    search: {
+        searchString: 'someString'
+    }
+};
 
 describe('Header component', () => {
-    let filmData;
+    let store;
     let viewMode;
     let backHandler;
-    let changeCriteriaHandler;
-    let changeTextHandler;
-    let currentSearchString;
     let element;
 
     beforeAll(() => {
-        filmData = {
-            id: 0,
-            img: 'image.jpg',
-            year: 1992,
-            rating: 8.3,
-            duration: 145,
-            summary: 'When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.'
-        };
+        store = mockStore(mockStoreData);
     });
 
-    it('should be rendered correctly in "filmDetails" mode', () => {
-        viewMode = 'filmDetails';
+    it('should be rendered correctly in FILM_DETAILS mode', () => {
+        viewMode = HEADER_VIEW_MODES.FILM_DETAILS;
         backHandler = jest.fn();
-        element = <Header viewMode={viewMode} openedFilm={filmData} closeFilmHandler={backHandler} />;
+        element = <Header headerViewMode={viewMode} closeFilmHandler={backHandler} />;
         
         const component = shallow(element);
         expect(component).toMatchSnapshot();
     });
 
-    it('should be mounted correctly in "filmDetails" mode', () => {
-        viewMode = 'filmDetails';
+    it('should be mounted correctly in FILM_DETAILS mode', () => {
+        viewMode = HEADER_VIEW_MODES.FILM_DETAILS;
         backHandler = jest.fn();
-        element = <Header viewMode={viewMode} openedFilm={filmData} closeFilmHandler={backHandler} />;
+        element = <Provider store={store}><Header headerViewMode={viewMode} closeFilmHandler={backHandler} /></Provider>;
         
         const component = mount(element);
         component.find(Button).simulate('click');
         expect(backHandler).toHaveBeenCalled();
     });
 
-    it('should be rendered correctly in "searchForm" mode', () => {
-        viewMode = 'searchForm';
-        changeCriteriaHandler = jest.fn();
-        changeTextHandler = jest.fn();
-        currentSearchString = 'Some search string';
-        element = (<Header
-            viewMode={viewMode}
-            searchOptions={SEARCH_OPTIONS}
-            currentSearchCriteria={SEARCH_OPTIONS[0]}
-            handleSearchOptionChange={changeCriteriaHandler}
-            currentSearchString={currentSearchString}
-            handleTextSearch={changeTextHandler}
-        />);
+    it('should be rendered correctly in SEARCH_FORM mode', () => {
+        store = mockStore(mockStoreData2);
+        viewMode = HEADER_VIEW_MODES.SEARCH_FORM;
+        element = (<Provider store={store}><Header headerViewMode={viewMode} /></Provider>);
+        
+        const component = mount(element);
+        expect(component).toMatchSnapshot();
+    });
+
+    it('should be rendered correctly without proper mode', () => {
+        viewMode = 'undefined_mode';
+        backHandler = jest.fn();
+        element = <Header headerViewMode={viewMode} closeFilmHandler={backHandler} />;
         
         const component = shallow(element);
         expect(component).toMatchSnapshot();
     });
-})
+});

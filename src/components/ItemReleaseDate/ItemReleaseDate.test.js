@@ -1,16 +1,16 @@
 import React from 'react';
 import ItemReleaseDate from './ItemReleaseDate';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('ItemReleaseDate component', () => {
-    let itemYear;
+    let releaseDate;
 
     beforeAll(() => {
-        itemYear = 1995;
+        releaseDate = '1995-01-01';
     });
 
     it('should be rendered correctly', () => {
-        const component = shallow(<ItemReleaseDate year={itemYear} />);
+        const component = shallow(<ItemReleaseDate releaseDate={releaseDate} />);
         expect(component).toMatchSnapshot();
     });
 })
