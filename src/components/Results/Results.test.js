@@ -3,7 +3,7 @@ import Results from './Results';
 import ResultsCount from '../ResultsCount';
 import ResultsSort from '../ResultsSort';
 import ResultsBody from '../ResultsBody';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { FILMS_MOCK_DATA, SORT_OPTIONS } from '../App/Config';
 
 describe('Results component', () => {

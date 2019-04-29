@@ -13,7 +13,7 @@ const SearchFilter = (props) => (
         />
         <Button
             title="Search"
-            classModifier="buttonAction"
+            customClass="buttonAction"
         />
     </div>
 )

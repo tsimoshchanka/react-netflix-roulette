@@ -1,7 +1,7 @@
-.itemGenre {
+.filmGenres {
     display: block;
-    color: grey;
-    font-size: 8px;
+    font-size: 15px;
     font-weight: normal;
+    color: white;
     text-transform: capitalize;
 }

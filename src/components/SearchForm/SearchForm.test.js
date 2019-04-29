@@ -3,7 +3,7 @@ import SearchForm from './SearchForm';
 import SearchFilter from '../SearchFilter';
 import SearchField from '../SearchField';
 import {shallow, mount} from 'enzyme';
-import { SEARCH_OPTIONS } from '../App/Config';
+import {SEARCH_OPTIONS} from '../App/Config';
 
 describe('SearchForm component', () => {
     let searchOptions;

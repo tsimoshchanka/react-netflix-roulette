@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './SearchField.css';
 
-const SearchField = (props) => (
+const SearchField = ({ value, onChange }) => (
     <input type="text"
         className={styles.searchField}
-        onChange={props.onChange}
-        value={props.value}
+        onChange={onChange}
+        value={value}
     />
 );
 

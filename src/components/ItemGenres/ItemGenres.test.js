@@ -3,14 +3,14 @@ import ItemGenre from './ItemGenre';
 import {shallow} from 'enzyme';
 
 describe('ItemGenre component', () => {
-    let itemGenre;
+    let itemGenres;
 
     beforeAll(() => {
-        itemGenre = 'someGenre';
+        itemGenres = 'someGenre';
     });
 
     it('should be rendered correctly', () => {
-        const component = shallow(<ItemGenre genre={itemGenre} />);
+        const component = shallow(<ItemGenre genres={itemGenres} />);
         expect(component).toMatchSnapshot();
     });
 })

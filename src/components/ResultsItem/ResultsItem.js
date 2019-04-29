@@ -3,19 +3,19 @@ import styles from './ResultsItem.css';
 import ItemImage from '../ItemImage';
 import ItemTitle from '../ItemTitle';
 import ItemReleaseDate from '../ItemReleaseDate';
-import ItemGenre from '../ItemGenre';
+import ItemGenres from '../ItemGenres';
 import PropTypes from 'prop-types';
 
-const ResultsItem = (props) => (
+const ResultsItem = ({ data, onClick }) => (
     <div 
-        id={'results-item-' + props.data.id}
+        id={'results-item-' + data.id}
         className={styles.resultsItem}
-        onClick={props.onClick}>
-        <ItemImage img={props.data.img} title={props.data.title}></ItemImage>
+        onClick={() => onClick(data.id)}>
+        <ItemImage img={data.poster_path} title={data.title}></ItemImage>
         <div className={styles.resultsItemWording}>
-            <ItemTitle title={props.data.title}></ItemTitle>
-            <ItemReleaseDate year={props.data.year}></ItemReleaseDate>
-            <ItemGenre genre={props.data.genre}></ItemGenre>
+            <ItemTitle title={data.title}></ItemTitle>
+            <ItemReleaseDate year={data.release_date}></ItemReleaseDate>
+            <ItemGenres genres={data.genres}></ItemGenres>
         </div>
     </div>
 )
@@ -24,12 +24,12 @@ export default ResultsItem;
 
 
 ResultsItem.propTypes = {
-    film: PropTypes.shape({
+    data: PropTypes.shape({
         id: PropTypes.number,
-        img: PropTypes.string,
+        poster_path: PropTypes.string,
         title: PropTypes.string,
-        genre: PropTypes.string,
-        year: PropTypes.number
+        genres: PropTypes.array,
+        release_date: PropTypes.string
     }),
     onClick: PropTypes.func
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultsSort from './ResultsSort';
 import ResultsSortList from '../ResultsSortList';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { SORT_OPTIONS } from '../App/Config';
 
 describe('ResultsSort component', () => {

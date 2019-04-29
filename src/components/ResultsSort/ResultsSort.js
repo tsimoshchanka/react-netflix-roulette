@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './ResultsSort.css';
 import ResultsSortList from '../ResultsSortList';
+import { SORT_OPTIONS } from '../../constants';
 
-const ResultsSort = (props) => (
+const ResultsSort = ({ currentSortCriteria, changeSortHanler }) => (
     <span>
         <span className={styles.resultsSort}>Sort by:</span>
         <ResultsSortList
-            options={props.options}
-            currentOption={props.currentOption}
-            changeHandler={props.changeHandler}
+            options={SORT_OPTIONS}
+            currentOption={currentSortCriteria}
+            changeHandler={changeSortHanler}
         />
     </span>
 );

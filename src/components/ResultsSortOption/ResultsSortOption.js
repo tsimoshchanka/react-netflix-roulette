@@ -3,7 +3,7 @@ import styles from './ResultsSortOption.css';
 
 const ResultsSortOption = (props) => (
     <button type="button"
-        className={styles[props.classModifier] || styles.button}
+        className={styles[props.customClass] || styles.button}
         onClick={props.onClick}>
         {props.title}
     </button>

@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './ResultsBody.css';
 import ResultsItem from '../ResultsItem';
 
-const ResultsBody = (props) => {
-    const resultsItems = props.results.map(film => 
+const ResultsBody = ({ results, openFilmHandler}) => {
+    const resultsItems = results.map(film => 
         <ResultsItem
             key={film.id}
             data={film}
-            onClick={() => props.openFilmHandler(film)}>
+            onClick={openFilmHandler}>
         </ResultsItem>
     );
 

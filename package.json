@@ -7,7 +7,7 @@
         "build": "webpack --config webpack.prod.js",
         "start": "webpack-dev-server --open --config webpack.dev.js",
         "test": "jest",
-        "cypress:open": "cypress open"
+        "cypress": "cypress open"
     },
     "repository": {
         "type": "git",
@@ -30,6 +30,7 @@
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.12.1",
         "enzyme-to-json": "^3.3.5",
+        "fetch-mock": "^7.3.3",
         "html-webpack-plugin": "^3.2.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^24.7.1",
@@ -40,6 +41,8 @@
         "react-css-modules": "^4.7.9",
         "react-test-renderer": "^16.8.6",
         "react-testing-library": "^6.1.2",
+        "redux-devtools-extension": "^2.13.8",
+        "redux-mock-store": "^1.5.3",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
         "uglifyjs-webpack-plugin": "^2.1.2",
@@ -52,6 +55,7 @@
         "react-dom": "^16.8.4",
         "react-redux": "^6.0.1",
         "react-router": "^4.4.0",
-        "redux": "^4.0.1"
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0"
     }
 }

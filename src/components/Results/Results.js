@@ -1,52 +1,82 @@
 import React from 'react';
 import styles from './Results.css';
 import ResultsCount from '../ResultsCount';
-import ResultsSort from '../ResultsSort';
 import ResultsBody from '../ResultsBody';
+import ResultsSortContainer from '../../containers/ResultsSortContainer';
+import { RESULTS_VIEW_MODES } from '../../constants';
 import PropTypes from 'prop-types';
+import { render } from 'react-testing-library';
 
-const Results = (props) => {
-    if(!props.results.length) {
-        return (
-            <main className={styles.results}>
-                <div className={styles.resultsHeading}></div>
-                <div className={styles.resultsError}>No films found</div>
-            </main>
-        )
+class Results extends React.Component {
+    componentDidMount() {
+        this.props.fetchData();
     }
 
-    return (
-        <main className={styles.results}>
-            <div className={styles.resultsHeading}>
-                <ResultsCount
-                    count={props.results.length}
-                />
-                <ResultsSort
-                    options={props.sortOptions}
-                    currentOption={props.currentSortOption}
-                    changeHandler={props.changeSortHandler}
-                />
-            </div>
-            <ResultsBody
-                results={props.results}
-                openFilmHandler={props.openFilmHandler}
-            />
-        </main>
-    );
+    render() {
+        const { results, viewMode, error, loading, openedFilmGenre, sameGenreFilms, openFilmHandler } = this.props;
+
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
+      
+        if (loading) {
+            return <div>Loading...</div>;
+        }
+    
+        if (!results.length) {
+            return (
+                <main className={styles.results}>
+                    <div className={styles.resultsHeading}></div>
+                    <div className={styles.resultsError}>No films found</div>
+                </main>
+            )
+        }
+
+        if (viewMode === RESULTS_VIEW_MODES.DEFAULT) {
+            return (
+                <main className={styles.results}>
+                    <div className={styles.resultsHeading}>
+                        <ResultsCount
+                            count={results.length}
+                        />
+                        <ResultsSortContainer />
+                    </div>
+                    <ResultsBody
+                        results={results}
+                        openFilmHandler={openFilmHandler}
+                    />
+                </main>
+            );
+        } 
+
+        if (viewMode === RESULTS_VIEW_MODES.SAME_GENRE) {
+            return (
+                <main className={styles.results}>
+                    <div className={styles.resultsHeadingMore}>
+                        More films by <span>{openedFilmGenre}</span> genre
+                    </div>
+                    <ResultsBody
+                        results={sameGenreFilms}
+                        openFilmHandler={openFilmHandler}
+                    />
+                </main>
+            )
+        }
+    }
 };
 
-Results.propTypes = {
-    results: PropTypes.array,
-    sortOptions: PropTypes.array,
-    currentSortOption: PropTypes.string,
-    changeSortHandler: PropTypes.func,
-    openFilmHandler: PropTypes.func
-};
+// Results.propTypes = {
+//     results: PropTypes.array,
+//     sortOptions: PropTypes.array,
+//     currentSortOption: PropTypes.string,
+//     changeSortHandler: PropTypes.func,
+//     openFilmHandler: PropTypes.func
+// };
 
-Results.defaultProps = {
-    results: [],
-    sortOptions: [],
-    currentSortOption: ''
-};
+// Results.defaultProps = {
+//     results: [],
+//     sortOptions: [],
+//     currentSortOption: ''
+// };
 
 export default Results;

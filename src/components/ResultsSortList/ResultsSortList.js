@@ -1,13 +1,13 @@
 import React from 'react';
 import ResultsSortOption from '../ResultsSortOption';
 
-const ResultsSortList = (props) => {
-    const searchCriterias = props.options.map(option => 
+const ResultsSortList = ({ options, currentOption, changeHandler }) => {
+    const searchCriterias = options.map(option => 
         <ResultsSortOption
-            key={option}
-            title={option}
-            classModifier={props.currentOption === option ? 'buttonChecked' : ''}
-            onClick={() => props.changeHandler(option)}>
+            key={option.field}
+            title={option.displayTitle}
+            customClass={currentOption === option.field ? 'buttonChecked' : ''}
+            onClick={() => changeHandler(option.field)}>
         </ResultsSortOption>
     );
 

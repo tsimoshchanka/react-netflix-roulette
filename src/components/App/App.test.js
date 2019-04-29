@@ -2,10 +2,9 @@ import React from 'react';
 import App from './App';
 import Header from '../Header';
 import Results from '../Results';
-import ResultsSameGenre from '../ResultsSameGenre';
 import Footer from '../Footer';
 import {shallow, mount} from 'enzyme';
-import { FILMS_MOCK_DATA } from './Config';
+import { FILMS_MOCK_DATA } from '../../constants';
 
 describe('Results component', () => {
     let films;
@@ -31,9 +30,9 @@ describe('Results component', () => {
 
     it('should countain proper components for default state', () => {
         const component = mount(element);
-        component.setState({ openedFilm: films[0] });
+        component.setState({openedFilm: films[0]});
         expect(component.find(Header).exists()).toBe(true);
-        expect(component.find(ResultsSameGenre).exists()).toBe(true);
+        // expect(component.find(ResultsSameGenre).exists()).toBe(true);
         expect(component.find(Footer).exists()).toBe(true);
     });
 })

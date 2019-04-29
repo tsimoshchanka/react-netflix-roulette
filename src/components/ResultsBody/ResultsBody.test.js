@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultsBody from './ResultsBody';
 import ResultsItem from '../ResultsItem';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { FILMS_MOCK_DATA } from '../App/Config'; 
 
 describe('ResultsBody component', () => {

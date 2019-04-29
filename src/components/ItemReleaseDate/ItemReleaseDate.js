@@ -3,7 +3,7 @@ import styles from './ItemReleaseDate.css';
 
 const ItemReleaseDate = (props) => (
     <div className={styles.itemReleaseDate}>
-        {props.year}
+        {props.year.slice(0, 4)}
     </div>
 )
 

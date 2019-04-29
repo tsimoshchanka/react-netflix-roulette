@@ -3,7 +3,7 @@ import SearchFilter from './SearchFilter';
 import Button from '../Button';
 import SearchCriteriasList from '../SearchCriteriasList';
 import {shallow, mount} from 'enzyme';
-import { SEARCH_OPTIONS } from '../App/Config';
+import {SEARCH_OPTIONS} from '../App/Config';
 
 describe('SearchFilter component', () => {
     let searchOptions;
@@ -35,7 +35,7 @@ describe('SearchFilter component', () => {
     it('should countain Button', () => {
         const component = mount(element);
         expect(component.find(Button).exists()).toBe(true);
-        expect(component.find(Button).last().props().classModifier).toEqual('buttonAction');
+        expect(component.find(Button).last().props().customClass).toEqual('buttonAction');
     });
 
     it('should countain SearchCriteriasList', () => {

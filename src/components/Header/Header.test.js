@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Button from '../Button';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { SEARCH_OPTIONS } from '../App/Config';
 
 describe('Header component', () => {

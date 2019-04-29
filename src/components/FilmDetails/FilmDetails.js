@@ -3,30 +3,28 @@ import styles from './FilmDetails.css';
 import FilmCover from '../FilmCover';
 import FilmTitle from '../FilmTitle';
 import FilmRating from '../FilmRating';
-import FilmGenre from '../FilmGenre';
+import FilmGenres from '../FilmGenres';
 import FilmDurationAndYear from '../FilmDurationAndYear';
 import FilmDescription from '../FilmDescription';
 import PropTypes from 'prop-types';
 
-const FilmDetails = (props) => (
+const FilmDetails = ({ film }) => (
     <div 
         className={styles.filmDetails}>
         <div className={styles.filmPoster}>
             <FilmCover
-                src={props.film.img}
-                alt={props.film.title}
+                src={film.poster_path}
+                alt={film.title}
             />
         </div>
         <div className={styles.filmDescription}>
-            <FilmTitle title={props.film.title} /><FilmRating rating={props.film.rating} />
-            <FilmGenre genre={props.film.genre} />
-            <FilmDurationAndYear duration={props.film.duration} year={props.film.year} />
-            <FilmDescription description={props.film.summary} />
+            <FilmTitle title={film.title} /><FilmRating rating={film.vote_count} />
+            <FilmGenres genres={film.genres} />
+            <FilmDurationAndYear duration={99} year={film.release_date} />
+            <FilmDescription description={film.overview} />
         </div>
     </div>
 )
-
-export default FilmDetails;
 
 FilmDetails.propTypes = {
     film: PropTypes.shape({
@@ -40,3 +38,5 @@ FilmDetails.propTypes = {
         summary: PropTypes.string
     })
 };
+
+export default FilmDetails;

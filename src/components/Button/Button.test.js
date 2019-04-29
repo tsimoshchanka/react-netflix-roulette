@@ -20,7 +20,7 @@ describe('Button component', () => {
     });
 
     it('should add auxiliary class if passed', () => {
-        const component = mount(<Button classModifier={'otherClass'} />);
+        const component = mount(<Button customClass={'otherClass'} />);
         expect(component.find('button').is('.otherClass')).toEqual(true);
     });
 
