@@ -8,20 +8,20 @@ import { SEARCH_OPTIONS } from '../../constants';
 describe('SearchForm component', () => {
     let searchString;
     let searchCriteria;
-    let changeSearchInputHandler;
+    let submitHandler;
     let changeSearchCriteriaHandler;
     let element;
 
     beforeAll(() => {
         searchString = 'someSearch';
         searchCriteria = SEARCH_OPTIONS[0];
-        changeSearchInputHandler = jest.fn();
+        submitHandler = jest.fn();
         changeSearchCriteriaHandler = jest.fn();
         
         element = (<SearchForm
             searchString={searchString}
             searchCriteria={searchCriteria}
-            changeSearchInputHandler={changeSearchInputHandler}
+            submitHandler={submitHandler}
             changeSearchCriteriaHandler={changeSearchCriteriaHandler}
         />)
     });
@@ -46,9 +46,9 @@ describe('SearchForm component', () => {
         expect(component.find(SearchFilter).exists()).toBe(true);
     });
 
-    it('should trigger changeSearchInputHandler handler on changes', () => {
+    it('should trigger submitHandler handler on changes', () => {
         const component = mount(element);
         component.find('input[type="text"]').simulate('change', {target: {value: 'someString'}});
-        expect(changeSearchInputHandler).toHaveBeenCalled();
+        expect(submitHandler).toHaveBeenCalled();
     });
 })

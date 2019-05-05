@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './FilmTitle.css';
 
-const FilmTitle = (props) => (
+const FilmTitle = ({ title }) => (
     <span className={styles.filmTitle}>
-        {props.title}
+        {title}
     </span>
 )
 

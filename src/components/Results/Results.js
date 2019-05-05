@@ -3,7 +3,6 @@ import styles from './Results.css';
 import ResultsCount from '../ResultsCount';
 import ResultsBody from '../ResultsBody';
 import ResultsSortContainer from '../../containers/ResultsSortContainer';
-import { RESULTS_VIEW_MODES } from '../../constants';
 import PropTypes from 'prop-types';
 
 class Results extends React.Component {
@@ -12,7 +11,7 @@ class Results extends React.Component {
     }
 
     render() {
-        const { results, viewMode, error, loading, openedFilmGenre, sameGenreFilms, openFilmHandler } = this.props;
+        const { results, error, loading, openFilmHandler } = this.props;
 
         if (error) {
             return <div>Error! {error.message}</div>;
@@ -30,53 +29,35 @@ class Results extends React.Component {
                 </main>
             )
         }
-
-        switch (viewMode) {
-            case RESULTS_VIEW_MODES.DEFAULT:
-                return (
-                    <main className={styles.results}>
-                        <div className={styles.resultsHeading}>
-                            <ResultsCount
-                                count={results.length}
-                            />
-                            <ResultsSortContainer />
-                        </div>
-                        <ResultsBody
-                            results={results}
-                            openFilmHandler={openFilmHandler}
-                        />
-                    </main>
-                );
-
-            case RESULTS_VIEW_MODES.SAME_GENRE:
-                return (
-                    <main className={styles.results}>
-                        <div className={styles.resultsHeadingMore}>
-                            More films by <span>{openedFilmGenre}</span> genre
-                        </div>
-                        <ResultsBody
-                            results={sameGenreFilms}
-                            openFilmHandler={openFilmHandler}
-                        />
-                    </main>
-                );
-        }
+        
+        return (
+            <main className={styles.results}>
+                <div className={styles.resultsHeading}>
+                    <ResultsCount
+                        count={results.length}
+                    />
+                    <ResultsSortContainer />
+                </div>
+                <ResultsBody
+                    results={results}
+                    openFilmHandler={openFilmHandler}
+                />
+            </main>
+        );
     }
 };
 
 Results.propTypes = {
     results: PropTypes.array,
-    viewMode: PropTypes.oneOf(Object.keys(RESULTS_VIEW_MODES)),
     error: PropTypes.object,
     loading: PropTypes.bool,
-    openedFilmGenre: PropTypes.func,
-    sameGenreFilms: PropTypes.array,
     openFilmHandler: PropTypes.func
 };
 
 Results.defaultProps = {
     results: [],
-    viewMode: RESULTS_VIEW_MODES.DEFAULT
+    error: null,
+    loading: false
 };
 
 export default Results;

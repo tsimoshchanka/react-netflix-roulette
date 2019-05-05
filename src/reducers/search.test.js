@@ -5,8 +5,7 @@ import * as types from '../constants/actionTypes';
 describe('searchReducer', () => {
     it('should return the initial state', () => {
         expect(reducer(undefined, {})).toEqual({
-            searchCriteria: SEARCH_OPTIONS[0],
-            searchString: ''
+            searchCriteria: SEARCH_OPTIONS[0]
         });
     });
 
@@ -18,17 +17,6 @@ describe('searchReducer', () => {
             payload: newSearchCriteria
         })).toEqual({
             searchCriteria: newSearchCriteria
-        });
-    });
-
-    it('should handle SEARCH_STRING_CHANGE', () => {
-        const newSearchString = 'newSearchString';
-
-        expect(reducer({}, {
-            type: types.SEARCH_STRING_CHANGE,
-            payload: newSearchString
-        })).toEqual({
-            searchString: newSearchString
         });
     });
 });

@@ -4,7 +4,7 @@ import ResultsCount from '../ResultsCount';
 import ResultsSort from '../ResultsSort';
 import ResultsBody from '../ResultsBody';
 import { shallow, mount } from 'enzyme';
-import { RESPONSE_MOCK_DATA, RESULTS_VIEW_MODES, SORT_OPTIONS } from '../../constants';
+import { RESPONSE_MOCK_DATA } from '../../constants';
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 
@@ -25,7 +25,6 @@ describe('Results component', () => {
     let store;
     let films;
     let fetchData;
-    let viewMode;
     let filmClickHandler;
     let element;
 
@@ -33,13 +32,11 @@ describe('Results component', () => {
         store = mockStore(mockStoreData);
         films = RESPONSE_MOCK_DATA.data;
         fetchData = jest.fn();
-        viewMode = RESULTS_VIEW_MODES.DEFAULT;
         filmClickHandler = jest.fn();
         
         element = (<Provider store={store}><Results
             results={films}
             fetchData={fetchData}
-            viewMode={viewMode}
             openFilmHandler={filmClickHandler}
         /></Provider>)
     });
@@ -62,18 +59,6 @@ describe('Results component', () => {
         const component = mount(<Provider store={store}><Results
             error={error}
             fetchData={fetchData}
-        /></Provider>);
-        expect(component).toMatchSnapshot();
-    });
-
-    it('should be rendered correctly in SAME_GENRE mode', () => {
-        const viewMode = RESULTS_VIEW_MODES.SAME_GENRE;
-        const component = mount(<Provider store={store}><Results
-            fetchData={fetchData}
-            results={films}
-            viewMode={viewMode}
-            sameGenreFilms={films}
-            openFilmHandler={filmClickHandler}
         /></Provider>);
         expect(component).toMatchSnapshot();
     });

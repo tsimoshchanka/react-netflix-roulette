@@ -1,3 +1,1 @@
-import SearchCriteriasList from './SearchCriteriasList';
-
-export default SearchCriteriasList;
+export { default } from './SearchCriteriasList';

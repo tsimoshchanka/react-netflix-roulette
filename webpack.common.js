@@ -15,14 +15,15 @@ module.exports = {
 					plugins: ['syntax-dynamic-import'],
 				},
 
-				test: /\.(js|jsx)$/,
+				test: /\.jsx?$/,
             }
 		]
 	},
 
 	output: {
 		chunkFilename: '[name].[chunkhash].js',
-		filename: '[name].[chunkhash].js'
+        filename: '[name].[chunkhash].js',
+        publicPath: '/'
 	},
 
 	optimization: {
@@ -49,5 +50,9 @@ module.exports = {
             hash: false,
             template: './src/index.html'
         })
-    ]
+    ],
+    
+    devServer: {
+        historyApiFallback: true
+    }
 };

@@ -1,3 +1,1 @@
-import FilmCover from './FilmCover';
-
-export default FilmCover;
+export { default } from './FilmCover';

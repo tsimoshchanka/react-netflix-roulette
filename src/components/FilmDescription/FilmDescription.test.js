@@ -1,6 +1,6 @@
 import React from 'react';
 import FilmDescription from './FilmDescription';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('FilmDescription component', () => {
     let filmDescr;

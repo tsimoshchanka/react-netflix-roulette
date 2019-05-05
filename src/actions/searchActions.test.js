@@ -11,14 +11,4 @@ describe('searchActions', () => {
 
         expect(actions.changeSearchCriteria(newValue)).toEqual(expectedAction);
     });
-
-    it('should create an action to search by string', () => {
-        const newValue = 'newSearchString';
-        const expectedAction = {
-            type: actionTypes.SEARCH_STRING_CHANGE,
-            payload: newValue
-        };
-
-        expect(actions.changeSearchInput(newValue)).toEqual(expectedAction);
-    });
 });

@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FilmDetails from '../../components/FilmDetails';
 
-const getOpenedFilm = (films, openedFilmId) => {
-    return films.find(film => film.id === openedFilmId);
+const getOpenedFilm = (films, filmId) => {
+    return films.find(({ id }) => id === filmId);
 };
 
-const mapStateToProps = ({ results, navigation }) => ({
-    film: getOpenedFilm(results.movies, navigation.openedFilmId)
+const mapStateToProps = ({ results }, { filmId, closeFilmHandler }) => ({
+    film: getOpenedFilm(results.movies, filmId),
+    closeFilmHandler
 });
 
 export default connect(mapStateToProps)(FilmDetails);

@@ -1,3 +1,1 @@
-import ResultsSortOption from './ResultsSortOption';
-
-export default ResultsSortOption;
+export { default } from './ResultsSortOption';

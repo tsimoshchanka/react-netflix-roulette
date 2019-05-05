@@ -1,3 +1,1 @@
-import ItemReleaseDate from './ItemReleaseDate';
-
-export default ItemReleaseDate;
+export { default } from './ItemReleaseDate';

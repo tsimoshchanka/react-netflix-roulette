@@ -1,3 +1,1 @@
-import FilmGenres from './FilmGenres';
-
-export default FilmGenres;
+export { default } from './FilmGenres';

@@ -1,3 +1,1 @@
-import ItemGenres from './ItemGenres';
-
-export default ItemGenres;
+export { default } from './ItemGenres';
