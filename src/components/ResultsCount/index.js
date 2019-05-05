@@ -1,3 +1,1 @@
-import ResultsCount from './ResultsCount';
-
-export default ResultsCount;
+export { default } from './ResultsCount';

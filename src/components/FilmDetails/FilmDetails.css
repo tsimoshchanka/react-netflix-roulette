@@ -1,3 +1,9 @@
+.header {
+    background: #212125;
+    color: white;
+    padding: 0 50px;
+}
+
 .filmDetails {
     display: flex;
     flex-direction: row;

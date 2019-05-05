@@ -11,7 +11,6 @@ import thunk from 'redux-thunk';
 import App from './components/App';
 import ErrorBoundary from './components/ErrorBoundary';
 
-
 const persistConfig = {
     key: 'root',
     storage,

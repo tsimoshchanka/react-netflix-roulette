@@ -1,0 +1,25 @@
+.results {
+    background: white;
+    width: 100%;
+}
+
+.resultsHeading {
+    display: flex;
+    justify-content: space-between;
+    min-height: 36px;
+    background: #f5f5f5;
+    padding: 10px 50px;
+    font-size: 12px;
+}
+
+.resultsHeadingMore {
+    display: block;
+    min-height: 36px;
+    background: #f5f5f5;
+    padding: 10px 50px;
+    font-size: 12px;
+
+    span {
+        font-weight: bold;
+    }
+}

@@ -1,11 +1,3 @@
-const HEADER_VIEW_MODES = {
-    SEARCH_FORM: 'SEARCH_FORM',
-    FILM_DETAILS: 'FILM_DETAILS'
-};
-const RESULTS_VIEW_MODES = {
-    DEFAULT: 'DEFAULT',
-    SAME_GENRE: 'SAME_GENRE'
-};
 const SEARCH_OPTIONS = ['title', 'genre'];
 const SORT_OPTIONS = [
     {displayTitle: 'year', field: 'release_date'},
@@ -203,4 +195,4 @@ const RESPONSE_MOCK_DATA = {
     "limit": 10
 };
 
-export { HEADER_VIEW_MODES, RESULTS_VIEW_MODES, SEARCH_OPTIONS, SORT_OPTIONS, RESPONSE_MOCK_DATA };
+export { SEARCH_OPTIONS, SORT_OPTIONS, RESPONSE_MOCK_DATA };

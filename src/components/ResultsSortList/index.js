@@ -1,3 +1,1 @@
-import ResultsFilterList from './ResultsSortList';
-
-export default ResultsFilterList;
+export { default } from './ResultsSortList';

@@ -1,3 +1,1 @@
-import FilmDurationAndYear from './FilmDurationAndYear';
-
-export default FilmDurationAndYear;
+export { default } from './FilmDurationAndYear';

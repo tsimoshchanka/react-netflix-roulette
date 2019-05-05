@@ -1,3 +1,1 @@
-import FilmTitle from './FilmTitle';
-
-export default FilmTitle;
+export { default } from './FilmTitle';

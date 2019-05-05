@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '.';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 describe('Button component', () => {
     let clickHandler;

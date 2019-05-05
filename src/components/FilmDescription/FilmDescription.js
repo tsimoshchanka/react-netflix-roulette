@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './FilmDescription.css';
 
-const FilmDescription = (props) => (
+const FilmDescription = ({ description }) => (
     <div className={styles.filmDescription}>
-        {props.description}
+        {description}
     </div>
 )
 

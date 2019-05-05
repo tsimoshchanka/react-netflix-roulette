@@ -1,3 +1,1 @@
-import ItemImage from './ItemImage';
-
-export default ItemImage;
+export { default } from './ItemImage';

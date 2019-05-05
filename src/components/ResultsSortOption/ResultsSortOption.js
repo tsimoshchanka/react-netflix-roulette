@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './ResultsSortOption.css';
 
-const ResultsSortOption = (props) => (
+const ResultsSortOption = ({ customClass, title, onClick }) => (
     <button type="button"
-        className={styles[props.customClass] || styles.button}
-        onClick={props.onClick}>
-        {props.title}
+        className={styles[customClass] || styles.button}
+        onClick={onClick}>
+        {title}
     </button>
 )
 

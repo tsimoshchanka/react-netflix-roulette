@@ -1,3 +1,1 @@
-import ResultsItem from './ResultsItem';
-
-export default ResultsItem;
+export { default } from './ResultsItem';

@@ -1,3 +1,1 @@
-import ItemTitle from './ItemTitle';
-
-export default ItemTitle;
+export { default } from './ItemTitle';

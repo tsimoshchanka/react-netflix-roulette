@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchForm from '../../components/SearchForm';
-import { changeSearchCriteria, changeSearchInput } from '../../actions/searchActions';
+import { changeSearchCriteria } from '../../actions/searchActions';
 
-const mapStateToProps = ({ search }) => ({
-    searchString: search.searchString,
+const mapStateToProps = ({ search }, { searchString, submitHandler }) => ({
+    searchString,
+    submitHandler,
     searchCriteria: search.searchCriteria
 });
 
 const mapDispatchToProps = dispatch => ({
-    changeSearchCriteriaHandler: (searchCriteria) => dispatch(changeSearchCriteria(searchCriteria)),
-    changeSearchInputHandler: (searchInput) => dispatch(changeSearchInput(searchInput))
+    changeSearchCriteriaHandler: (searchCriteria) => dispatch(changeSearchCriteria(searchCriteria))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
