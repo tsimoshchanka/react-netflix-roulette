@@ -1,18 +1,18 @@
-describe('The Home Page', function() {
+describe('The Home Page', function () {
     const resultItemClass = '.ResultsItem___resultsItem';
 
     beforeEach(function () {
         cy.visit('/');
     })
-      
-    it('successfully loads', function() {
+
+    it('successfully loads', function () {
         cy.contains('NetflixRoulette');
-        cy.contains('No films found');
+        cy.contains('30 movies found');
     })
 
-    it('filters results by changing the search input', function() {
+    it('filters results by changing the search input', function () {
         cy.get('input[type="text"]').type('m');
+        cy.get('button').contains('Search').click();
         cy.contains('movies found');
     })
 })
-  
