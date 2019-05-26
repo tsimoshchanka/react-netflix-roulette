@@ -1,6 +1,6 @@
 import React from 'react';
-import FilmDetails from './FilmDetails';
 import { shallow, mount } from 'enzyme';
+import FilmDetails from './FilmDetails';
 import { RESPONSE_MOCK_DATA } from '../../constants';
 
 describe('FilmDetails component', () => {
@@ -19,4 +19,4 @@ describe('FilmDetails component', () => {
         const component = mount(<FilmDetails film={filmData} />);
         expect(component).toMatchSnapshot();
     });
-})
+});

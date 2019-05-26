@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 const Button = ({ customClass, title, onClick, classes }) => (
     <button
         type='button'
-        className={classes[customClass] || classes['button']}
+        className={classes[customClass] || classes.button}
         onClick={onClick}
     >
         {title}

@@ -1,6 +1,6 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import ItemImage from './ItemImage';
-import {shallow} from 'enzyme';
 
 describe('ItemImage component', () => {
     let itemSrc;
@@ -15,4 +15,4 @@ describe('ItemImage component', () => {
         const component = shallow(<ItemImage src={itemSrc} alt={itemAlt} />);
         expect(component).toMatchSnapshot();
     });
-})
+});

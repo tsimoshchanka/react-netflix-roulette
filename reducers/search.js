@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export default function search(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case SEARCH_CRITERIA_CHANGE:
             return {
                 ...state,

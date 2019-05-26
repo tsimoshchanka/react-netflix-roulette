@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../Logo';
 import injectSheet from 'react-jss';
+import Logo from '../Logo';
 
 const Footer = ({ classes }) => (
     <footer className={classes.footer}>

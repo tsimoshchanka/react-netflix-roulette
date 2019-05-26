@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ResultsSortOption from '../ResultsSortOption';
 import { changeSort } from '../../actions/sortActions';
-import { connect } from 'react-redux';
 
 const ResultsSortList = ({ options, currentOption, changeHandler }) => {
     const searchCriterias = options.map(option => (

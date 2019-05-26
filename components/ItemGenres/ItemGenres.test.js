@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemGenres from './ItemGenres';
 import { shallow } from 'enzyme';
+import ItemGenres from './ItemGenres';
 
 describe('ItemGenre component', () => {
     let itemGenres;
@@ -13,4 +13,4 @@ describe('ItemGenre component', () => {
         const component = shallow(<ItemGenres genres={itemGenres} />);
         expect(component).toMatchSnapshot();
     });
-})
+});

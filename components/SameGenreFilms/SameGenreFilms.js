@@ -1,7 +1,7 @@
 import React from 'react';
-import ResultsBody from '../ResultsBody';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import ResultsBody from '../ResultsBody';
 
 const SameGenreFilms = ({ films, filmGenre, openFilmHandler, classes }) => {
     if (!films.length) {

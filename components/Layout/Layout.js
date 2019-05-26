@@ -1,5 +1,5 @@
-import Footer from '../Footer';
 import injectSheet from 'react-jss';
+import Footer from '../Footer';
 
 const Layout = ({ children }) => (
     <div>

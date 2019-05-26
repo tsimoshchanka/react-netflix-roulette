@@ -1,8 +1,8 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import SearchCriteriasList from './SearchCriteriasList';
 import Button from '../Button';
-import { shallow, mount } from 'enzyme';
-import { SEARCH_OPTIONS } from '../../constants'; 
+import { SEARCH_OPTIONS } from '../../constants';
 
 describe('SearchCriteriasList component', () => {
     let searchOptions;
@@ -36,4 +36,4 @@ describe('SearchCriteriasList component', () => {
         component.find(Button).first().simulate('click');
         expect(clickHandler).toHaveBeenCalledWith(SEARCH_OPTIONS[0]);
     });
-})
+});

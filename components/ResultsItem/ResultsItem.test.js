@@ -1,6 +1,6 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import ResultsItem from './ResultsItem';
-import {shallow, mount} from 'enzyme';
 import { RESPONSE_MOCK_DATA } from '../../constants';
 
 describe('ResultsItem component', () => {
@@ -19,7 +19,7 @@ describe('ResultsItem component', () => {
     it('should be mounted correctly', () => {
         clickHandler = jest.fn();
         const component = mount(<ResultsItem data={filmData} onClick={clickHandler} />);
-        component.find('#results-item-' + filmData.id).simulate('click');
+        component.find(`#results-item-${filmData.id}`).simulate('click');
         expect(clickHandler).toHaveBeenCalled();
     });
-})
+});

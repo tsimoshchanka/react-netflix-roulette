@@ -1,6 +1,7 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import ResultsCount from './ResultsCount';
-import {shallow} from 'enzyme';
+
 
 describe('ResultsCount component', () => {
     let filmsCount;
@@ -16,4 +17,4 @@ describe('ResultsCount component', () => {
         const component = shallow(<ResultsCount count={filmsCount} />);
         expect(component.html()).toEqual('<span></span>');
     });
-})
+});

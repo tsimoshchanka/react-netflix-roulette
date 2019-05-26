@@ -1,17 +1,15 @@
 import React from 'react';
 import injectSheet from 'react-jss';
 
-const SearchField = ({ value, onChange, classes }) => {
-    return (
-        <input
-            type="text"
-            className={classes.searchField}
-            onChange={onChange}
-            value={value}
-            autoFocus
-        />
-    );
-};
+const SearchField = ({ value, onChange, classes }) => (
+    <input
+        type="text"
+        className={classes.searchField}
+        onChange={onChange}
+        value={value}
+        autoFocus
+    />
+);
 
 const styles = {
     // .searchField

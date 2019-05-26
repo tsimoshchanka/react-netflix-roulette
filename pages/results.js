@@ -1,31 +1,20 @@
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import { Router } from '../routes';
 import Layout from '../components/Layout';
 import ResultsDefault from '../components/ResultsDefault';
 import SearchForm from '../components/SearchForm';
-import { connect } from 'react-redux';
-import { getResults } from '../actions/resultsActions';
+import getResults from '../actions/resultsActions';
 import { changeSearchString } from '../actions/searchActions';
 
-const Results = ({ results, search, sort }) => {
-    const titleFilterer = film =>
-        film.title.toUpperCase().includes(search.searchString.toUpperCase());
-    const genreFilterer = film =>
-        (film.genres[0] || '')
-            .toUpperCase()
-            .includes(search.searchString.toUpperCase());
+const filterersByCriteria = {
+    title: searchString => film => film.title.toUpperCase().includes(searchString.toUpperCase()),
+    genre: searchString => film => (film.genres[0] || '').toUpperCase().includes(searchString.toUpperCase())
+};
+const getSorterByCriteria = criteria => (a, b) => a[criteria] - b[criteria];
 
-    const filterers = {
-        title: titleFilterer,
-        genre: genreFilterer
-    };
-    const searchCriteria = search.searchCriteria;
-    const sortCriteria = sort.sortCriteria;
-    const getSorterByCriteria = criteria => (a, b) => a[criteria] - b[criteria];
-    const filmsFiltered = results.films.filter(filterers[searchCriteria]);
-    const filmsFilteredAndSorted = filmsFiltered.sort(
-        getSorterByCriteria(sortCriteria)
-    );
-    const openFilmHandler = id => {
+const Results = ({ filmsFilteredAndSorted }) => {
+    const openFilmHandler = (id) => {
         Router.pushRoute(`/film/${id}`);
     };
 
@@ -40,7 +29,7 @@ const Results = ({ results, search, sort }) => {
     );
 };
 
-Results.getInitialProps = async function(ctx) {
+Results.getInitialProps = async (ctx) => {
     const { searchString = '' } = ctx.query;
     const { results } = await ctx.store.dispatch(getResults());
     const { search } = ctx.store.dispatch(changeSearchString(searchString));
@@ -48,10 +37,18 @@ Results.getInitialProps = async function(ctx) {
     return { results, search };
 };
 
-const mapStateToProps = state => ({
-    results: state.results,
-    search: state.search,
-    sort: state.sort
-});
+const filteredAndSortedFilmsSelector = createSelector(
+    state => state.search.searchCriteria,
+    state => state.search.searchString,
+    state => state.sort.sortCriteria,
+    state => state.results.films,
+    (searchCriteria, searchString, sortCriteria, films) => ({
+        filmsFilteredAndSorted: films
+            .filter(filterersByCriteria[searchCriteria](searchString))
+            .sort(getSorterByCriteria(sortCriteria))
+    })
+);
+
+const mapStateToProps = state => filteredAndSortedFilmsSelector(state);
 
 export default connect(mapStateToProps)(Results);

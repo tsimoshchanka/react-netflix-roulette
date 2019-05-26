@@ -1,6 +1,6 @@
 import React from 'react';
-import ResultsItem from '../ResultsItem';
 import injectSheet from 'react-jss';
+import ResultsItem from '../ResultsItem';
 
 const ResultsBody = ({ results, openFilmHandler, classes }) => {
     const resultsItems = results.map(film => (

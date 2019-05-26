@@ -1,7 +1,7 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import ResultsSort from './ResultsSort';
 import ResultsSortList from '../ResultsSortList';
-import { shallow, mount } from 'enzyme';
 import { SORT_OPTIONS } from '../../constants';
 
 describe('ResultsSort component', () => {
@@ -15,7 +15,7 @@ describe('ResultsSort component', () => {
         element = (<ResultsSort
             currentSortCriteria={currentOption}
             changeSortHanler={clickHandler}
-        />)
+        />);
     });
 
     it('should be rendered correctly', () => {
@@ -32,4 +32,4 @@ describe('ResultsSort component', () => {
         const component = mount(element);
         expect(component.find(ResultsSortList).exists()).toBe(true);
     });
-})
+});

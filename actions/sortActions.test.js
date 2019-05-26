@@ -1,14 +1,14 @@
-import * as actions from './sortActions';
-import * as actionTypes from '../constants/ActionTypes';
+import { changeSort } from './sortActions';
+import { SORT_CRITERIA_CHANGE } from '../constants/actionTypes';
 
 describe('sortActions', () => {
     it('should create an action to sort', () => {
         const newValue = 'newSortCriteria';
         const expectedAction = {
-            type: actionTypes.SORT_CRITERIA_CHANGE,
+            type: SORT_CRITERIA_CHANGE,
             payload: newValue
         };
 
-        expect(actions.changeSort(newValue)).toEqual(expectedAction);
-    })
+        expect(changeSort(newValue)).toEqual(expectedAction);
+    });
 });

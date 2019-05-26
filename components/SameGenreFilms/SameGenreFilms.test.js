@@ -1,11 +1,14 @@
 import React from 'react';
-import SameGenreFilms from './SameGenreFilms';
 import { shallow, mount } from 'enzyme';
 import { RESPONSE_MOCK_DATA } from '../../constants';
+import SameGenreFilms from './SameGenreFilms';
 import ResultsItem from '../ResultsItem';
 
 describe('SameGenreFilms component', () => {
-    let films, filmGenre, openFilmHandler, element;
+    let films;
+    let filmGenre;
+    let openFilmHandler;
+    let element;
 
     beforeAll(() => {
         films = RESPONSE_MOCK_DATA.data;
@@ -15,7 +18,7 @@ describe('SameGenreFilms component', () => {
             films={films}
             filmGenre={filmGenre}
             openFilmHandler={openFilmHandler}
-        />)
+        />);
     });
 
     it('should be rendered correctly', () => {
@@ -28,4 +31,4 @@ describe('SameGenreFilms component', () => {
         component.find(ResultsItem).first().simulate('click');
         expect(openFilmHandler).toHaveBeenCalledWith(films[0].id);
     });
-})
+});

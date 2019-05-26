@@ -1,6 +1,6 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import ItemTitle from './ItemTitle';
-import {shallow, mount} from 'enzyme';
 
 describe('ItemTitle component', () => {
     let itemTitle;
@@ -13,4 +13,4 @@ describe('ItemTitle component', () => {
         const component = shallow(<ItemTitle title={itemTitle} />);
         expect(component).toMatchSnapshot();
     });
-})
+});
