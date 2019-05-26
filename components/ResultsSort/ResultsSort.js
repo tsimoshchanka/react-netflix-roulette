@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import injectSheet from 'react-jss';
 import ResultsSortList from '../ResultsSortList';
 import { SORT_OPTIONS } from '../../constants';
 import { changeSort } from '../../actions/sortActions';
-import injectSheet from 'react-jss';
 
-const ResultsSort = ({ currentSortCriteria, changeSortHanler, classes }) => (
+const ResultsSort = ({ currentSortCriteria, changeSortHandler, classes }) => (
     <span>
         <span className={classes.resultsSort}>Sort by:</span>
         <ResultsSortList
             options={SORT_OPTIONS}
             currentOption={currentSortCriteria}
-            changeHandler={changeSortHanler}
+            changeHandler={changeSortHandler}
         />
     </span>
 );

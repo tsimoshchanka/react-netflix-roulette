@@ -1,28 +1,8 @@
-import React from 'react';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
 import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
-import rootReducer from '../reducers/index.js';
-import thunk from 'redux-thunk';
 import { JssProvider, SheetsRegistry } from 'react-jss';
-
-/**
- * @param {object} initialState
- * @param {boolean} options.isServer indicates whether it is a server side or client side
- * @param {Request} options.req NodeJS Request object (not set when client applies initialState from server)
- * @param {Request} options.res NodeJS Request object (not set when client applies initialState from server)
- * @param {boolean} options.debug User-defined debug mode param
- * @param {string} options.storeKey This key will be used to preserve store in global namespace for safe HMR
- */
-const makeStore = (initialState, options) => {
-    return createStore(
-        rootReducer,
-        initialState,
-        composeWithDevTools(applyMiddleware(thunk))
-    );
-};
+import configureStore from '../reduxSetup/configureStore';
+import ProviderWrapper from '../reduxSetup/ProviderWrapper';
 
 class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
@@ -40,13 +20,13 @@ class MyApp extends App {
         return (
             <Container>
                 <JssProvider registry={sheets}>
-                    <Provider store={store}>
+                    <ProviderWrapper store={store}>
                         <Component {...pageProps} />
-                    </Provider>
+                    </ProviderWrapper>
                 </JssProvider>
             </Container>
         );
     }
 }
 
-export default withRedux(makeStore)(MyApp);
+export default withRedux(configureStore)(MyApp);

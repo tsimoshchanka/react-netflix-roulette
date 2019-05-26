@@ -1,6 +1,6 @@
 import React from 'react';
-import FilmDurationAndYear from './FilmDurationAndYear';
 import { shallow } from 'enzyme';
+import FilmDurationAndYear from './FilmDurationAndYear';
 
 describe('FilmDurationAndYear component', () => {
     let filmDuration;

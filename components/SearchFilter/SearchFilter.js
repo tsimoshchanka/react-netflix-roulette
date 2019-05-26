@@ -1,7 +1,7 @@
 import React from 'react';
+import injectSheet from 'react-jss';
 import SearchCriteriasList from '../SearchCriteriasList';
 import Button from '../Button';
-import injectSheet from 'react-jss';
 
 const SearchFilter = ({
     options,
@@ -9,21 +9,19 @@ const SearchFilter = ({
     changeCriteriaHandler,
     submitValueHandler,
     classes
-}) => (
-    <div className={classes.searchFilter}>
-        <span>Search by </span>
-        <SearchCriteriasList
-            options={options}
-            currentOption={currentOption}
-            changeHandler={changeCriteriaHandler}
-        />
-        <Button
-            title="Search"
-            customClass="buttonAction"
-            onClick={submitValueHandler}
-        />
-    </div>
-);
+}) => (<div className={classes.searchFilter}>
+    <span>Search by </span>
+    <SearchCriteriasList
+        options={options}
+        currentOption={currentOption}
+        changeHandler={changeCriteriaHandler}
+    />
+    <Button
+        title="Search"
+        customClass="buttonAction"
+        onClick={submitValueHandler}
+    />
+</div>);
 
 const styles = {
     // .searchFilter

@@ -1,6 +1,6 @@
 import React from 'react';
-import FilmPoster from './FilmPoster';
 import { shallow } from 'enzyme';
+import FilmPoster from './FilmPoster';
 
 describe('FilmPoster component', () => {
     let filmSrc;

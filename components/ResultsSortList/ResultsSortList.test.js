@@ -1,7 +1,7 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import ResultsSortList from './ResultsSortList';
 import ResultsSortOption from '../ResultsSortOption';
-import { shallow, mount } from 'enzyme';
 import { SORT_OPTIONS } from '../../constants';
 
 describe('ResultsSortList component', () => {
@@ -18,7 +18,7 @@ describe('ResultsSortList component', () => {
             options={sortOptions}
             currentOption={currentOption}
             changeHandler={clickHandler}
-        />)
+        />);
     });
 
     it('should be rendered correctly', () => {
@@ -36,6 +36,4 @@ describe('ResultsSortList component', () => {
         component.find(ResultsSortOption).first().simulate('click');
         expect(clickHandler).toHaveBeenCalledWith(SORT_OPTIONS[0].field);
     });
-
-   
-})
+});

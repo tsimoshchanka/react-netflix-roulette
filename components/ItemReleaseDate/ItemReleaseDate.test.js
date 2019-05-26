@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemReleaseDate from './ItemReleaseDate';
 import { shallow } from 'enzyme';
+import ItemReleaseDate from './ItemReleaseDate';
 
 describe('ItemReleaseDate component', () => {
     let releaseDate;
@@ -13,4 +13,4 @@ describe('ItemReleaseDate component', () => {
         const component = shallow(<ItemReleaseDate releaseDate={releaseDate} />);
         expect(component).toMatchSnapshot();
     });
-})
+});

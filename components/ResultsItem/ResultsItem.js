@@ -1,14 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import ItemImage from '../ItemImage';
 import ItemTitle from '../ItemTitle';
 import ItemReleaseDate from '../ItemReleaseDate';
 import ItemGenres from '../ItemGenres';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
 
 const ResultsItem = ({ data, onClick }) => (
     <div
-        id={'results-item-' + data.id}
+        id={`results-item-${data.id}`}
         className="resultsItem"
         onClick={() => onClick(data.id)}
     >

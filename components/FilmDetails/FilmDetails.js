@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import Logo from '../Logo';
 import Button from '../Button';
 import FilmPoster from '../FilmPoster';
@@ -7,8 +9,6 @@ import FilmRating from '../FilmRating';
 import FilmGenres from '../FilmGenres';
 import FilmDurationAndYear from '../FilmDurationAndYear';
 import FilmDescription from '../FilmDescription';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
 
 const FilmDetails = ({ film, closeFilmHandler, classes }) => (
     <header className={classes.header}>

@@ -1,8 +1,8 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import SearchFilter from './SearchFilter';
 import Button from '../Button';
 import SearchCriteriasList from '../SearchCriteriasList';
-import { shallow, mount } from 'enzyme';
 import { SEARCH_OPTIONS } from '../../constants';
 
 describe('SearchFilter component', () => {
@@ -19,7 +19,7 @@ describe('SearchFilter component', () => {
             options={searchOptions}
             currentOption={currentOption}
             changeHandler={clickHandler}
-        />)
+        />);
     });
 
     it('should be rendered correctly', () => {
@@ -42,4 +42,4 @@ describe('SearchFilter component', () => {
         const component = mount(element);
         expect(component.find(SearchCriteriasList).exists()).toBe(true);
     });
-})
+});

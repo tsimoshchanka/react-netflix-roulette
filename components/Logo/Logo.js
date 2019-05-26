@@ -1,18 +1,24 @@
 import React from 'react';
 import injectSheet from 'react-jss';
+import { Router } from '../../routes';
+
+const clickHandler = () => {
+    Router.pushRoute('/');
+};
 
 const Logo = ({ classes }) => (
-    <div className={classes.logo}>NetflixRoulette</div>
+    <div className={classes.logo} onClick={clickHandler}>NetflixRoulette</div>
 );
 
 const styles = {
     logo: {
+        display: 'inline-block',
         color: '#f55263',
         padding: '10px 0',
-        fontSize: '12px',
         textTransform: 'lowercase',
         fontSize: '12px',
-        fontWeight: '600'
+        fontWeight: '600',
+        cursor: 'pointer'
     }
 };
 

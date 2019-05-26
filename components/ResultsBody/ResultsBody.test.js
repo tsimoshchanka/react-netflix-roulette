@@ -1,8 +1,8 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import ResultsBody from './ResultsBody';
 import ResultsItem from '../ResultsItem';
-import { shallow, mount } from 'enzyme';
-import { RESPONSE_MOCK_DATA } from '../../constants'; 
+import { RESPONSE_MOCK_DATA } from '../../constants';
 
 describe('ResultsBody component', () => {
     let films;
@@ -33,4 +33,4 @@ describe('ResultsBody component', () => {
         component.find(ResultsItem).first().simulate('click');
         expect(clickHandler).toHaveBeenCalledWith(RESPONSE_MOCK_DATA.data[0].id);
     });
-})
+});

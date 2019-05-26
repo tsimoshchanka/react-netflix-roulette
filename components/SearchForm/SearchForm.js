@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import injectSheet from 'react-jss';
 import { Router } from '../../routes';
 import Logo from '../Logo';
 import SearchField from '../SearchField';
 import SearchFilter from '../SearchFilter';
-import injectSheet from 'react-jss';
 import { SEARCH_OPTIONS } from '../../constants';
 import { changeSearchCriteria } from '../../actions/searchActions';
 
@@ -60,8 +60,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    changeSearchCriteriaHandler: searchCriteria =>
-        dispatch(changeSearchCriteria(searchCriteria))
+    changeSearchCriteriaHandler: searchCriteria => dispatch(changeSearchCriteria(searchCriteria))
 });
 
 const styles = {

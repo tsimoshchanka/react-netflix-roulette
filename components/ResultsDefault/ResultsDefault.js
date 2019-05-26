@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import ResultsCount from '../ResultsCount';
 import ResultsBody from '../ResultsBody';
 import ResultsSort from '../ResultsSort';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
 
 class ResultsDefault extends React.Component {
     render() {

@@ -1,8 +1,9 @@
 const SEARCH_OPTIONS = ['title', 'genre'];
 const SORT_OPTIONS = [
-    {displayTitle: 'year', field: 'release_date'},
-    {displayTitle: 'rating', field: 'vote_count'}
+    { displayTitle: 'year', field: 'release_date' },
+    { displayTitle: 'rating', field: 'vote_count' }
 ];
+/* eslint-disable quotes, quote-props, max-len */
 const RESPONSE_MOCK_DATA = {
     "data": [
         {
@@ -194,5 +195,6 @@ const RESPONSE_MOCK_DATA = {
     "offset": 0,
     "limit": 10
 };
+/* eslint-enable quotes, quote-props, max-len */
 
 export { SEARCH_OPTIONS, SORT_OPTIONS, RESPONSE_MOCK_DATA };

@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '.';
 import { shallow, mount } from 'enzyme';
+import Button from '.';
 
 describe('Button component', () => {
     let clickHandler;
@@ -29,4 +29,4 @@ describe('Button component', () => {
         component.find('button').simulate('click');
         expect(clickHandler).toHaveBeenCalled();
     });
-})
+});

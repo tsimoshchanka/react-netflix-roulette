@@ -1,8 +1,8 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 import SearchForm from './SearchForm';
 import SearchFilter from '../SearchFilter';
 import SearchField from '../SearchField';
-import { shallow, mount } from 'enzyme';
 import { SEARCH_OPTIONS } from '../../constants';
 
 describe('SearchForm component', () => {
@@ -17,13 +17,12 @@ describe('SearchForm component', () => {
         searchCriteria = SEARCH_OPTIONS[0];
         submitHandler = jest.fn();
         changeSearchCriteriaHandler = jest.fn();
-        
         element = (<SearchForm
             searchString={searchString}
             searchCriteria={searchCriteria}
             submitHandler={submitHandler}
             changeSearchCriteriaHandler={changeSearchCriteriaHandler}
-        />)
+        />);
     });
 
     it('should be rendered correctly', () => {
@@ -48,7 +47,7 @@ describe('SearchForm component', () => {
 
     it('should trigger submitHandler handler on changes', () => {
         const component = mount(element);
-        component.find('input[type="text"]').simulate('change', {target: {value: 'someString'}});
+        component.find('input[type="text"]').simulate('change', { target: { value: 'someString' } });
         expect(submitHandler).toHaveBeenCalled();
     });
-})
+});
