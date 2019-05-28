@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_RESULTS } from '../constants/actionTypes';
 
-const API_URL = 'http://reactjs-cdp.herokuapp.com/movies/?limit=30';
+const API_URL = 'https://reactjs-cdp.herokuapp.com/movies/?limit=30';
 
 /* eslint-disable arrow-parens */
 const getResults = () => async dispatch => {
