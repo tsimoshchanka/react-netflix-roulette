@@ -1,0 +1,42 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/_next/static/(.*)",
+            "dest": "/_next/static/$1",
+            "headers": {
+                "cache-control": "s-maxage=86400"
+            }
+        },
+        {
+            "src": "^\\/(?:\\/)?$",
+            "dest": "/"
+        },
+        {
+            "src": "^\\/film\\/([^\\/]+?)(?:\\/)?$",
+            "dest": "/film?id=$1"
+        },
+        {
+            "src": "^\\/film(?:\\/)?$",
+            "dest": "/"
+        },
+        {
+            "src": "^\\/search\\/([^\\/]+?)(?:\\/)?$",
+            "dest": "/?searchString=$1"
+        },
+        {
+            "src": "^\\/search(?:\\/)?$",
+            "dest": "/"
+        },
+        {
+            "src": "^\\/([^\\/]+?)(?:\\/)?$",
+            "dest": "/error?something=$1"
+        }
+    ]
+}
